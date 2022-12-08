@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Info from "../Info/Info";
 import TodoList from "../TodoList/TodoList";
 
-const Tasks = () => {
-  const [todoItem, setTodoItem] = useState<JSX.Element[]>([]);
-
+const Tasks = ({ todoItems }) => {
   return (
     <>
-      <Info />
-      <TodoList todoItem={todoItem} />
+      <Info todoItems={todoItems} />
+      <TodoList todoItems={todoItems} />
     </>
   );
 };

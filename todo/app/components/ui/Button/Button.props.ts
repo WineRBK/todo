@@ -5,6 +5,6 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  svg: "add" | "none";
+  svg: "plus" | "none";
   children: ReactNode;
 }

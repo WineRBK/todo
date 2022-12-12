@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Info from "../Info/Info";
 import TodoList from "../TodoList/TodoList";
 
-const Tasks = ({ todoItems }) => {
+const Tasks = ({ todoList, remove, check }) => {
   return (
     <>
-      <Info todoItems={todoItems} />
-      <TodoList todoItems={todoItems} />
+      <Info todoList={todoList} />
+      <TodoList check={check} remove={remove} todoList={todoList} />
     </>
   );
 };

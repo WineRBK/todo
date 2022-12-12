@@ -2,29 +2,34 @@ import Input from "../../ui/Input/Input";
 import Button from "../../ui/Button/Button";
 import Tasks from "../../ui/Tasks/Tasks";
 import { useEffect, useState } from "react";
+import ItemForm from "../../ui/ItemForm/ItemForm";
+import { IItemForm } from "../../ui/ItemForm/ItemForm.Interface";
 
 const Main = () => {
-  const [itemText, setItemText] = useState<string>("");
-  const [todoItems, setTodoItems] = useState([]);
+  const [todoList, setTodoList] = useState<IItemForm[]>([]);
 
-  const handleTextChange = (text: string) => {
-    setItemText(text);
+  const createItem = (newItem: IItemForm) => {
+    setTodoList([...todoList, newItem]);
   };
 
-  const handleTodoItems = (item) => {
-    setTodoItems(item);
+  const removeItem = (item: IItemForm) => {
+    setTodoList(todoList.filter((p) => p.id !== item.id));
   };
 
+  const checkedItem = (item: IItemForm) => {
+    const copy = [...todoList];
+    const current = copy.find((t) => t.id === item.id);
+    if (typeof current !== "undefined") {
+      current.isChecked = !current?.isChecked;
+      setTodoList(copy);
+    }
+  };
+  
   return (
     <main className="w-screen">
       <div className="mx-auto max-w-[736px]">
-        <div className="flex gap-[8px] mt-[-27px]">
-          <Input onChange={handleTextChange} />
-          <Button addItem={handleTodoItems} itemText={itemText} svg="plus">
-            Criar
-          </Button>
-        </div>
-        <Tasks todoItems={todoItems} />
+        <ItemForm create={createItem} />
+        <Tasks check={checkedItem} remove={removeItem} todoList={todoList} />
       </div>
     </main>
   );

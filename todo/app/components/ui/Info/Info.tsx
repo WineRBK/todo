@@ -1,4 +1,5 @@
-const Info = ({ todoItems }) => {
+
+const Info = ({ todoList }) => {
   return (
     <div className="flex justify-between mt-[65px]">
       <div>
@@ -9,7 +10,7 @@ const Info = ({ todoItems }) => {
           className="bg-[#333333] rounded-[999px] py-[2px] px-[8px]
         text-[#D9D9D9] font-bold text-[12px]"
         >
-          {todoItems.length}
+          {todoList.length}
         </span>
       </div>
       <div>
@@ -18,7 +19,12 @@ const Info = ({ todoItems }) => {
           className="bg-[#333333] rounded-[999px] py-[2px] px-[8px]
         text-[#D9D9D9] font-bold text-[12px]"
         >
-          {todoItems.length}
+          {todoList.length != 0 && (
+            <span>
+              {todoList.filter((p) => p.isChecked == true).length} de{" "}
+            </span>
+          )}
+          {todoList.length}
         </span>
       </div>
     </div>

@@ -1,7 +1,9 @@
 import { HTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { IItemForm } from "../ItemForm/ItemForm.Interface";
 
 export interface TodoListProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  todoItems: JSX.Element[];
-  children: ReactNode;
+  todoList: IItemForm[];
+  remove: Function;
+  check: Function;
 }

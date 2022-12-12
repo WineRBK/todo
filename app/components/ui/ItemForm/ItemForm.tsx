@@ -1,12 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import { IItemForm } from "./ItemForm.Interface";
+import { ItemFormProps } from "./ItemForm.props";
 
-const ItemForm = ({ create }) => {
+const ItemForm = ({ create }: ItemFormProps) => {
   const [text, setText] = useState("");
 
-  const addNewItem = (e) => {
+  const addNewItem = (e: React.MouseEvent) => {
+    console.log(e);
     e.preventDefault();
     if (text !== "") {
       const newItem: IItemForm = {

@@ -1,5 +1,7 @@
+import { IItemForm } from "../ItemForm/ItemForm.Interface";
+import { InfoProps } from "./Info.props";
 
-const Info = ({ todoList }) => {
+const Info = ({ todoList }: InfoProps) => {
   return (
     <div className="flex justify-between mt-[65px]">
       <div>
@@ -21,7 +23,7 @@ const Info = ({ todoList }) => {
         >
           {todoList.length != 0 && (
             <span>
-              {todoList.filter((p) => p.isChecked == true).length} de{" "}
+              {todoList.filter((p: IItemForm) => p.isChecked == true).length} de{" "}
             </span>
           )}
           {todoList.length}

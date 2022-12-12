@@ -2,8 +2,9 @@ import Item from "../Item/Item";
 import ClipboardIcon from "./Clipboard.svg";
 import cn from "classnames";
 import { IItemForm } from "../ItemForm/ItemForm.Interface";
+import { TodoListProps } from "./TodoList.props";
 
-const TodoList = ({ todoList, remove, check }) => {
+const TodoList = ({ todoList, remove, check }: TodoListProps) => {
   return (
     <div
       className={cn("mt-[25px] border-t-[1px] rounded-[8px] border-[#333333]", {

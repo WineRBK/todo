@@ -1,7 +1,9 @@
 import { HTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { IItemForm } from "../ItemForm/ItemForm.Interface";
 
 export interface ItemProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> {
-  todoItem: JSX.Element[];
-  text: string
+    item: IItemForm;
+    remove: Function;
+    check: Function;
 }

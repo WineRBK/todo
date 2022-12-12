@@ -1,7 +1,7 @@
 import { ButtonProps } from "./Button.props";
 import AddIcon from "./plus.svg";
 
-const Button = ({ children, svg, ...props }: ButtonProps) => {
+const Button = ({ children, svg = "none", ...props }: ButtonProps) => {
   return (
     <button
       {...props}
